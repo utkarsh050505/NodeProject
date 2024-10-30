@@ -29,8 +29,8 @@ Ensure you have the following installed:
 
 ### Installation
 
-1. Clone this repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd <repository-name>`
+1. Clone this repository: `git clone https://github.com/utkarsh050505/NodeProject.git`
+2. Navigate to the project directory
 
 3. Install the dependencies for both the backend and frontend:
    - **Backend**: `npm install`
