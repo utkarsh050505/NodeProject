@@ -1,4 +1,4 @@
-// frontend/pages/index.js
+// frontend
 import React, { useEffect, useState } from 'react';
 import { Container, TextField, Button, Typography, List, ListItem, ListItemText } from '@mui/material';
 import axios from 'axios';
@@ -12,13 +12,13 @@ export default function Home() {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
 
-    // Fetch comments initially
+    
     useEffect(() => {
         axios.get('http://localhost:3001/api/comments').then((response) => {
             setComments(response.data);
         });
 
-        // Listen for new comments from Socket.IO
+
         socket.on('newComment', (newComment) => {
             setComments((prevComments) => [newComment, ...prevComments]);
         });
@@ -26,14 +26,14 @@ export default function Home() {
         return () => socket.off('newComment');
     }, []);
 
-    // Handle login
+    
     const handleLogin = () => {
         axios.post('http://localhost:3001/api/login', { username })
             .then((response) => setSessionId(response.data.sessionId))
             .catch(console.error);
     };
 
-    // Handle posting a new comment
+    
     const handlePostComment = () => {
         axios.post('http://localhost:3001/api/comments', { sessionId, comment })
             .then((response) => setComment(''))
